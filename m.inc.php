@@ -34,24 +34,27 @@ if ( !function_exists( 'tryReq' ) ) {
      * @param bool|string $prefix Optional. Either false for ROOT or a string ending with a slash (/)
      * @return bool False means that the file could not be read. True means that the file could be read and was retrieved.
      */
-    function tryReq( $file, $prefix=false ) {
-        if ( is_readable( $file ) ) require_once( ( $prefix?$prefix:ROOT.'/' ).$file );
-        else return false; // File isn't readable, so return FALSE.
+    function tryReq( $file, $hooks=true, $prefix=false ) {
+        if ( is_readable( $file ) ) {
+            if ( $hooks===true ) hook( 'pre_'.str_replace( '-', '_', str_replace( '.', '_', $file ) ) );
+            require_once( ( $prefix?$prefix:ROOT.'/' ).$file );
+        }
+        else {
+            if ( $hooks===true ) hook( 'fail_to_load_'.str_replace( '-', '_', str_replace( '.', '_', $file ) ) );
+            return false; // File isn't readable, so return FALSE.
+        }
+        if ( $hooks===true ) hook( 'post_'.str_replace( '-', '_', str_replace( '.', '_', $file ) ) );
         return true; // We can read the file, and we already have by the time we get here, so we should return TRUE.
     }
 }
 if ( !defined( 'HAS_M_INC_PHP' ) ) {
     tryDef( 'HAS_M_INC_PHP', true );
     if ( !defined( 'NO_PRELOAD' ) ) {
-        tryReq( 'callbacks.inc.php' );
-        tryReq( 'config.inc.php' );
-        tryReq( 'basic-security.inc.php' );
-        hook( 'pre_http_inc_php' );
+        tryReq( 'callbacks.inc.php', false );
+        tryReq( 'config.inc.php', false );
+        tryReq( 'basic-security.inc.php', false );
         tryReq( 'http.inc.php' );
-        hook( 'post_http_inc_php' );
-        hook( 'pre_html_inc_php' );
         tryReq( 'html.inc.php' );
-        hook( 'post_html_inc_php' );
     }
 }
 ?>
