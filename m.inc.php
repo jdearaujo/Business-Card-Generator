@@ -4,7 +4,8 @@
  *
  * @package Business-Card-Generator
  */
-
+global $http, $html, $starttime;
+if ( !isset( $starttime ) ) $starttime = microtime( true );
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 if ( !function_exists( 'tryDef' ) ) {
     /**
@@ -45,6 +46,12 @@ if ( !defined( 'HAS_M_INC_PHP' ) ) {
         tryReq( 'callbacks.inc.php' );
         tryReq( 'config.inc.php' );
         tryReq( 'basic-security.inc.php' );
+        hook( 'pre_http_inc_php' );
+        tryReq( 'http.inc.php' );
+        hook( 'post_http_inc_php' );
+        hook( 'pre_html_inc_php' );
+        tryReq( 'html.inc.php' );
+        hook( 'post_html_inc_php' );
     }
 }
 ?>
