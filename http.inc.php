@@ -70,6 +70,12 @@ if ( !class_exists( 'http' ) ) {
             case 'my-js':
                 $end='js/script.js';
                 break;
+            case 'app-js':
+                $end='js/app.'.( file_exists( ROOT.'/js/app.min.js' )?'min.js':'js' );
+                break;
+            case 'app-htm':
+                $end='app.htm';
+                break;
             }
             if ( $end===false ) return false;
             if ( $internal===true ) return ROOT.'/'.$end;

@@ -1,5 +1,5 @@
 /* ===================================================
- * bootstrap-transition.js v2.0.0
+ * bootstrap-transition.js v2.0.2
  * http://twitter.github.com/bootstrap/javascript.html#transitions
  * ===================================================
  * Copyright 2012 Twitter, Inc.
@@ -35,11 +35,11 @@
         end: (function () {
           var transitionEnd = "TransitionEnd"
           if ( $.browser.webkit ) {
-          	transitionEnd = "webkitTransitionEnd"
+            transitionEnd = "webkitTransitionEnd"
           } else if ( $.browser.mozilla ) {
-          	transitionEnd = "transitionend"
+            transitionEnd = "transitionend"
           } else if ( $.browser.opera ) {
-          	transitionEnd = "oTransitionEnd"
+            transitionEnd = "oTransitionEnd"
           }
           return transitionEnd
         }())
@@ -47,5 +47,5 @@
     })()
 
   })
-  
-}( window.jQuery )
+
+}( window.jQuery );

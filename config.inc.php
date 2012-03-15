@@ -12,4 +12,5 @@ tryDef( 'FORCE_HTTPS', false ); // If this is set to true, this will force the u
 tryDef( 'HAS_HTTPS', false ); // If your website works over HTTPS, please set this to true. Else, it should be set to false.
 tryDef( 'HOME_URL', 'localhost/git/Business-Card-Generator' ); // The URL (without the protocol) where the website is.
 tryDef( 'GOOGLE_ANALYTICS_ID', false ); // e.g. UA-XXXXX-X
+tryDef( 'BUFFER_SIZE', 300 ); // In characters. This applies to the HTML - not any of the resources, like the CSS and JS.
 ?>

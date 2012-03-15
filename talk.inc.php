@@ -46,16 +46,16 @@ function __( $id=0 ) {
         return 'Create'; // Title for page on the nav
         break;
     case 9:
-        return '';
+        return 'Home'; // The title for the hero-unit on the home page.
         break;
     case 10:
-        return '';
+        return '[This content needs to be changed. It can be changed in the <a href="https://github.com/jamescostian/Business-Card-Generator/blob/master/talk.inc.php">talk.inc.php</a> file.]'; // First parargraph
         break;
     case 11:
-        return '';
+        return 'Create'; // The title for the create page.
         break;
     case 12:
-        return '';
+        return '[This content needs to be changed. It can be changed in the <a href="https://github.com/jamescostian/Business-Card-Generator/blob/master/talk.inc.php">talk.inc.php</a> file.]</p><p>The reason why you\'ll love this is because...'; // Paragraph above the actual app on the create page
         break;
     case 13:
         return '';
