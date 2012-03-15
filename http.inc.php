@@ -33,14 +33,38 @@ if ( !class_exists( 'http' ) ) {
          * @uses HOME_URL
          *
          * @param string $name the name of the resource/URL/path
-         * @param bool $i If true, this is an internal path. If false, it's a URL.
+         * @param bool $internal If true, this is an internal path. If false, it's a URL.
          * @return string|bool the URL or path to whatever you want (unless it can't be found, in which case it will return false)
          */
-        function where( $name, $i ) {
+        function where( $name, $internal=false ) {
             $end = false;
             switch ( $name ) {
             case 'home':
                 $end='';
+                break;
+            case 'bootstrap-css':
+                $end='css/bootstrap.min.css';
+                break;
+            case 'bootstrap-responsive-css':
+                $end='css/bootstrap-responsive.min.css';
+                break;
+            case 'my-css':
+                $end='css/style.css';
+                break;
+            case 'html5respond':
+                $end='js/libs/html5-3.4-respond-1.1.0.min.js';
+                break;
+            case 'jquery':
+                $end='js/libs/jquery-1.7.1.min.js';
+                break;
+            case 'bootstrap-transition':
+                $end='js/libs/bootstrap/transition.js';
+                break;
+            case 'bootstrap-collapse':
+                $end='js/libs/bootstrap/collapse.js';
+                break;
+            case 'my-js':
+                $end='js/script.js';
                 break;
             case '':
                 $end='';
@@ -50,7 +74,7 @@ if ( !class_exists( 'http' ) ) {
                 break;
             }
             if ( $end===false ) return false;
-            if ( $i===true ) return ROOT.'/'.$end;
+            if ( $internal===true ) return ROOT.'/'.$end;
             else return 'http'.( ( defined( 'HAS_HTTPS' )?HAS_HTTPS:false )?'s':'' ).'://'.HOME_URL.'/'.$end;
         }
         

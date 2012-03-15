@@ -51,8 +51,9 @@ if ( !defined( 'HAS_M_INC_PHP' ) ) {
     tryDef( 'HAS_M_INC_PHP', true );
     if ( !defined( 'NO_PRELOAD' ) ) {
         tryReq( 'callbacks.inc.php', false );
-        tryReq( 'config.inc.php', false );
-        tryReq( 'basic-security.inc.php', false );
+        tryReq( 'config.inc.php' );
+        tryReq( 'talk.inc.php' );
+        tryReq( 'basic-security.inc.php' );
         tryReq( 'http.inc.php' );
         tryReq( 'html.inc.php' );
     }
