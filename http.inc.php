@@ -9,7 +9,7 @@ if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 require_once( ROOT.'/m.inc.php' );
 if ( !class_exists( 'http' ) ) {
     /**
-     * Manages HTTP Headers, URLs, and relative paths.
+     * Manages the HTTP Headers, URLs, and relative paths.
      *
      * @since 0.1b
      * @package Business-Card-Generator
@@ -24,6 +24,36 @@ if ( !class_exists( 'http' ) ) {
         function __construct(  ) {
             self::$queue = array(  );
         }
+        
+        /**
+         * Retrieves a URL or path
+         *
+         * @since 0.1b
+         * @uses ROOT
+         * @uses HOME_URL
+         *
+         * @param string $name the name of the resource/URL/path
+         * @param bool $i If true, this is an internal path. If false, it's a URL.
+         * @return string|bool the URL or path to whatever you want (unless it can't be found, in which case it will return false)
+         */
+        function where( $name, $i ) {
+            $end = false;
+            switch ( $name ) {
+            case 'home':
+                $end='';
+                break;
+            case '':
+                $end='';
+                break;
+            case '':
+                $end='';
+                break;
+            }
+            if ( $end===false ) return false;
+            if ( $i===true ) return ROOT.'/'.$end;
+            else return 'http'.( ( defined( 'HAS_HTTPS' )?HAS_HTTPS:false )?'s':'' ).'://'.HOME_URL.'/'.$end;
+        }
+        
         /**
          * Sends all of the HTTP headers in the queue
          *
@@ -61,6 +91,7 @@ if ( !class_exists( 'http' ) ) {
          * @return bool Return true unless the header you send is named X-exectime
          */
         function header( $name, $value ) {
+            if ( !is_array( self::$queue ) ) return false;
             if ( $name=='X-exectime' ) return false;
             if ( array_key_exists( $name, self::$queue ) ) {
                 // An entry for this header already exists
