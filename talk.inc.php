@@ -15,7 +15,7 @@ require_once( ROOT.'/m.inc.php' );
  * @param int $id The ID of the content that will be displayed.
  * @return string The actual content
  */
-function __( $id ) {
+function __( $id=0 ) {
     $_id = intval( $id );
     switch ( $_id ) {
     case 0:
@@ -40,10 +40,10 @@ function __( $id ) {
         return 'Business Card Generator'; // The name of this project (for the top-left corner of BootStrap)
         break;
     case 7:
-        return '';
+        return 'Home'; // Title for page on the nav
         break;
     case 8:
-        return '';
+        return 'Create'; // Title for page on the nav
         break;
     case 9:
         return '';

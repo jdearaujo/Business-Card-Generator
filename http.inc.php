@@ -26,7 +26,8 @@ if ( !class_exists( 'http' ) ) {
         }
         
         /**
-         * Retrieves a URL or path
+         * Retrieves a URL or path.
+         * This should NOT ever be changed. Modify the HOME_URL (config.inc.php)
          *
          * @since 0.1b
          * @uses ROOT
@@ -41,6 +42,9 @@ if ( !class_exists( 'http' ) ) {
             switch ( $name ) {
             case 'home':
                 $end='';
+                break;
+            case 'create':
+                $end='create';
                 break;
             case 'bootstrap-css':
                 $end='css/bootstrap.min.css';
@@ -65,12 +69,6 @@ if ( !class_exists( 'http' ) ) {
                 break;
             case 'my-js':
                 $end='js/script.js';
-                break;
-            case '':
-                $end='';
-                break;
-            case '':
-                $end='';
                 break;
             }
             if ( $end===false ) return false;

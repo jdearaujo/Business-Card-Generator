@@ -12,6 +12,7 @@ $html->code( '<!doctype html><html class="no-js" lang="en"><head><meta charset="
 
 // Pages
 // e.g.: <li class="active"><a href="#">Home</a></li>
-
-$html->code( '</ul></div></div></div></div><div class="container">' );
+$pages = array( array( 'title'=>__( 7 ), 'location'=>'home' ), array( 'title'=>__( 8 ), 'location'=>'create' ) );
+foreach ( $pages as $page ) $html->code( '<li'.( $page[ 'title' ]==CURRENT_PAGE_NAME?' class="active"':'' ).'><a href="'.$http->where( $page[ 'location' ], false ).'">'.$page[ 'title' ].'</a></li>' );
+$html->code( $nav.'</ul></div></div></div></div><div class="container">' );
 ?>
