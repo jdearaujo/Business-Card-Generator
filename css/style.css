@@ -3,3 +3,7 @@
  *
  * @package Business-Card-Generator
  */
+div.span12.preview {
+    width: 89mm;
+    height: 51mm;
+}

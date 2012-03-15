@@ -73,8 +73,8 @@ if ( !class_exists( 'http' ) ) {
             case 'app-js':
                 $end='js/app.'.( file_exists( ROOT.'/js/app.min.js' )?'min.js':'js' );
                 break;
-            case 'app-htm':
-                $end='app.htm';
+            case 'bootstrap-tab-js':
+                $end='js/libs/bootstrap/tab.js';
                 break;
             }
             if ( $end===false ) return false;
