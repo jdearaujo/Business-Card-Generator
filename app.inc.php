@@ -48,10 +48,10 @@ if ( !class_exists( 'App' ) ) {
             $html->code( '<div class="row-fluid"><div class="span12 preview">' );
             $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">Front Preview</a></li><li><a href="#back" data-toggle="tab">Back Preview</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
             // Front
-            self::card( false );
+            self::card( false, 1, 1 );
             $html->code( '</div><div class="tab-pane fade" id="back">' );
             // Back
-            
+            self::card( false, 2, 1 );
             $html->code( '</div></div></div></div></div>' );
         }
         
@@ -68,6 +68,7 @@ if ( !class_exists( 'App' ) ) {
          * @return True.
          */
         function card( $card, $side, $amount=1 ) {
+            global $html;
             if ( !is_array( $card ) ) {
                 // We need to generate the default template for a card.
                 self::card( array( 'design'=>'default', 'name'=>__( 13 ), 'position'=>__( 14 ), 'company'=>__( 15 ) ), $side, $amount );
@@ -76,9 +77,22 @@ if ( !class_exists( 'App' ) ) {
                  */
                 return true;
             }
-            for ( $card = 0;  $card < $amount;  $card++ ) {
-                
+            $s = intval( $side );
+            $name = $card[ 'name' ];
+            $pos = $card[ 'position' ];
+            $co = $card[ 'company' ]; /* TODO: add all of the fields in the format of these three fields. */
+            switch ( $card[ 'design' ] ) {
+            case 'default':
+                if ( $s == 1 ) {
+                    $end = '<p>Name: '.$name.'</p>';
+                    $end.='<p>Position: '.$pos.'</p>';
+                    $end.='<p>Company: '.$co.'</p>';
+                }
+                else {
+                    $end = 'This is the back.';
+                }
             }
+            for ( $card = 0;  $card < $amount;  $card++ ) $html->code( $end );
             return true;
         }
         

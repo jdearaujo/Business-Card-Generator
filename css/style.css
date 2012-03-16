@@ -3,7 +3,9 @@
  *
  * @package Business-Card-Generator
  */
-div.span12.preview {
+div.row-fluid div.span12.preview {
     width: 89mm;
-    height: 51mm;
+}
+div.preview div div.tab-content div {
+	height: 51mm;
 }
