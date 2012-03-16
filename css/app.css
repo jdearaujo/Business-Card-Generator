@@ -3,22 +3,20 @@
  *
  * @package Business-Card-Generator
  */
-div.row-fluid div.span12.preview {
-    width: 89mm;
-}
 div.tabbable ul.nav {
     margin-bottom: 5px;
 }
 div.preview div div.tab-content div {
     height: 51mm;
+    width: 89mm;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 div.preview div div.tab-content div p {
-	font-family: 'Lato', sans-serif;
-	font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
     margin: 0;
     padding: 0;
     line-height: 100%;

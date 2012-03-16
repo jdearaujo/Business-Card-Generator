@@ -101,16 +101,16 @@ function __( $id=0 ) {
         return 'Silicon Valley, CA'; // Default Location in the app.
         break;
     case 27:
-        return ''; // 
+        return 'Info'; // The title of the Info tab in the app.
         break;
     case 28:
-        return ''; // 
+        return 'Principal Design'; // The title of the Principal Design tab in the app.
         break;
     case 29:
-        return ''; // 
+        return 'Fonts'; // The title of the Fonts tab in the app.
         break;
     case 30:
-        return ''; // 
+        return 'Colors'; // The title of the Colors tab in the app.
         break;
     case 31:
         return ''; // 
@@ -140,6 +140,36 @@ function __( $id=0 ) {
         return ''; // 
         break;
     case 40:
+        return ''; // 
+        break;
+    case 41:
+        return ''; // 
+        break;
+    case 42:
+        return ''; // 
+        break;
+    case 43:
+        return ''; // 
+        break;
+    case 44:
+        return ''; // 
+        break;
+    case 45:
+        return ''; // 
+        break;
+    case 46:
+        return ''; // 
+        break;
+    case 47:
+        return ''; // 
+        break;
+    case 48:
+        return ''; // 
+        break;
+    case 49:
+        return ''; // 
+        break;
+    case 50:
         return ''; // 
         break;
     }

@@ -21,7 +21,15 @@ if ( !class_exists( 'App' ) ) {
          */
         public static $version='0.11b';
         
-        function __construct() {} // Do nothing
+        /**
+         *  Default Settings
+         *  @var array
+         */
+        public static $defaults=array();
+        
+        function __construct() {
+            self::$defaults = array( 'design'=>'default', 'name'=>__( 13 ), 'home_phone'=>__( 20 ), 'cell_phone'=>__( 21 ), 'work_phone'=>__( 22 ), 'website'=>__( 23 ), 'company'=>__( 15 ), 'position'=>__( 14 ), 'skype'=>__( 24 ), 'email'=>__( 25 ), 'location'=>__( 26 ) );
+        }
         
         /**
          * Launches the application
@@ -49,7 +57,7 @@ if ( !class_exists( 'App' ) ) {
          */
         function preview( $card=false ) {
             global $html;
-            $html->code( '<div class="row-fluid"><div class="span12 preview">' );
+            $html->code( '<div class="row-fluid"><div class="span4 preview">' );
             $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">Front Preview</a></li><li><a href="#back" data-toggle="tab">Back Preview</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
             // Front
             self::card( $card, 1, 1 );
@@ -76,19 +84,8 @@ if ( !class_exists( 'App' ) ) {
             global $html;
             if ( !is_array( $card ) || !isset( $card[ 'name' ] ) ) {
                 // We need to generate the default template for a card.
-                self::card( array( 
-                        'design'=>'default', 
-                        'name'=>__( 13 ),
-                        'home_phone'=>__( 20 ),
-                        'cell_phone'=>__( 21 ),
-                        'work_phone'=>__( 22 ),
-                        'website'=>__( 23 ),
-                        'company'=>__( 15 ),
-                        'position'=>__( 14 ),
-                        'skype'=>__( 24 ),
-                        'email'=>__( 25 ),
-                        'location'=>__( 26 )
-                        ), $side, $amount, $print );
+                self::__construct(  );
+                self::card( self::$defaults, $side, $amount, $print );
                 return true;
             }
             $s = intval( $side );
@@ -146,7 +143,16 @@ if ( !class_exists( 'App' ) ) {
          */
         function big(  ) {
             global $html;
-            $html->code( '</div>' );
+            $html->code( '<div class="span8 big"><div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#info" data-toggle="tab">'.__( 27 ).'</a></li><li><a href="#design" data-toggle="tab">'.__( 28 ).'</a></li><li><a href="#fonts" data-toggle="tab">'.__( 29 ).'</a></li><li><a href="#colors" data-toggle="tab">'.__( 30 ).'</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="info">' );
+            // Info form
+            $html->code( '<form action="#!" id="info"></form>' );
+            $html->code( '</div><div class="tab-pane fade" id="design">' );
+            // Design
+            $html->code( '</div><div class="tab-pane fade" id="fonts">' );
+            // Fonts
+            $html->code( '</div><div class="tab-pane fade" id="colors">' );
+            // Colors
+            $html->code( '</div></div></div></div></div>' );
         }
         
         function __isset( $name ) {
