@@ -1,6 +1,7 @@
 <?php
 /**
  * Has the actual content. If you want to change any text the website says, you should change this file.
+ * If you want to change the text on a design for a business card, please go to app.inc.php, find the card function in the App class, and make your changes inside of the switch statement.
  *
  * @package Business-Card-Generator
  */
@@ -8,7 +9,7 @@ global $http, $html;
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 require_once( ROOT.'/m.inc.php' );
 /**
- * Retrieves a URL or path
+ * Says something
  *
  * @since 0.1b
  *
@@ -67,16 +68,16 @@ function __( $id=0 ) {
         return 'Local pawn shop'; // Default company for the app.
         break;
     case 16:
-        return '';
+        return 'Actions'; // The title of the Actions section in the app.
         break;
     case 17:
-        return '';
+        return 'Print'; // The title of the Print button in the app.
         break;
     case 18:
-        return '';
+        return 'Import'; // The title of the Import button in the app.
         break;
     case 19:
-        return '';
+        return 'Export'; // The title of the Export button in the app.
         break;
     case 20:
         return '';
