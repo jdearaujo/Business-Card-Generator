@@ -80,7 +80,67 @@ function __( $id=0 ) {
         return 'Export'; // The title of the Export button in the app.
         break;
     case 20:
-        return '';
+        return '(555) 555-5555'; // Default Home Phone number in the app.
+        break;
+    case 21:
+        return '(444) 444-4444'; // Default Cell Phone number in the app.
+        break;
+    case 22:
+        return '(333) 333-3333'; // Default Work Phone number in the app.
+        break;
+    case 23:
+        return 'jamescostian.com'; // Default Website in the app.
+        break;
+    case 24:
+        return 'jamescostian'; // Default Skype ID in the app.
+        break;
+    case 25:
+        return 'james@jamescostian.com'; // Default Email address in the app.
+        break;
+    case 26:
+        return 'Silicon Valley, CA'; // Default Location in the app.
+        break;
+    case 27:
+        return ''; // 
+        break;
+    case 28:
+        return ''; // 
+        break;
+    case 29:
+        return ''; // 
+        break;
+    case 30:
+        return ''; // 
+        break;
+    case 31:
+        return ''; // 
+        break;
+    case 32:
+        return ''; // 
+        break;
+    case 33:
+        return ''; // 
+        break;
+    case 34:
+        return ''; // 
+        break;
+    case 35:
+        return ''; // 
+        break;
+    case 36:
+        return ''; // 
+        break;
+    case 37:
+        return ''; // 
+        break;
+    case 38:
+        return ''; // 
+        break;
+    case 39:
+        return ''; // 
+        break;
+    case 40:
+        return ''; // 
         break;
     }
 }

@@ -68,34 +68,54 @@ if ( !class_exists( 'App' ) ) {
          *
          * @param array $card The info about the card
          * @param int $side If you set the side to 1, this function will generate the front. If you set it to 2, this function will generate the back.
-         * @param int $amout Number of cards to generate
+         * @param int $amout Optional. Number of cards to generate
+         * @param bool $print Optional. Only set this to true if you are printing!
          * @return True.
          */
-        function card( $card, $side, $amount=1 ) {
+        function card( $card, $side, $amount=1, $print=false ) {
             global $html;
-            if ( !is_array( $card ) ) {
+            if ( !is_array( $card ) || !isset( $card[ 'name' ] ) ) {
                 // We need to generate the default template for a card.
-                self::card( array( 'design'=>'default', 'name'=>__( 13 ), 'position'=>__( 14 ), 'company'=>__( 15 ) ), $side, $amount );
-                /*
-                 * TODO: add all of the fields to the above array
-                 */
+                self::card( array( 
+                        'design'=>'default', 
+                        'name'=>__( 13 ),
+                        'home_phone'=>__( 20 ),
+                        'cell_phone'=>__( 21 ),
+                        'work_phone'=>__( 22 ),
+                        'website'=>__( 23 ),
+                        'company'=>__( 15 ),
+                        'position'=>__( 14 ),
+                        'skype'=>__( 24 ),
+                        'email'=>__( 25 ),
+                        'location'=>__( 26 )
+                        ), $side, $amount, $print );
                 return true;
             }
             $s = intval( $side );
             $name = $card[ 'name' ];
-            $pos = $card[ 'position' ];
-            $co = $card[ 'company' ]; /* TODO: add all of the fields in the format of these three fields. */
+            $home_phone = $card[ 'home_phone' ];
+            $cell_phone = $card[ 'cell_phone' ];
+            $work_phone = $card[ 'work_phone' ];
+            $website = $card[ 'website' ];
+            $company = $card[ 'company' ];
+            $position = $card[ 'position' ];
+            $skype = $card[ 'skype' ];
+            $email = $card[ 'email' ];
+            $location = $card[ 'location' ];
+            if ( $print===true ) $end = '<div style="display:inline-block;width:89mm;height:51mm;-moz-border-radius:5px;-o-border-radius:5px;-webkit-border-radius:5px;border-radius:5px">';
+            else $end = '';
             switch ( $card[ 'design' ] ) {
             case 'default':
                 if ( $s == 1 ) {
-                    $end = '<p>Name: '.$name.'</p>';
-                    $end.='<p>Position: '.$pos.'</p>';
-                    $end.='<p>Company: '.$co.'</p>';
+                    $end.='<p>Name: '.$name.'</p>';
+                    $end.='<p>Position: '.$position.'</p>';
+                    $end.='<p>Company: '.$company.'</p>';
                 }
                 else {
-                    $end = '<p>This is the back.</p>';
+                    $end.='<p>This is the back.</p>';
                 }
             }
+            if ( $print===true ) $end.='</div>';
             for ( $card = 0;  $card < $amount;  $card++ ) $html->code( $end );
             return true;
         }
