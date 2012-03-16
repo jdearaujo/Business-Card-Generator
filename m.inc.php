@@ -49,6 +49,7 @@ if ( !defined( 'HAS_M_INC_PHP' ) ) {
         tryReq( 'basic-security.inc.php' );
         tryReq( 'http.inc.php' );
         tryReq( 'html.inc.php' );
+        hook( 'ready' );
     }
 }
 ?>
