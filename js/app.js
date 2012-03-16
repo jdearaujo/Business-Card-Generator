@@ -3,3 +3,6 @@
  *
  * @package Business-Card-Generator
  */
+$(function(){
+    
+})

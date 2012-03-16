@@ -8,7 +8,7 @@ global $http, $html;
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( dirname( __FILE__ ) ) );
 require_once( ROOT.'/m.inc.php' );
 tryDef( 'CURRENT_PAGE_NAME', __( 8 ) );
-function end_head_hook(  ) {
+function footer_hook(  ) {
     global $html, $http;
     $html->code( '<script src="'.$http->where( 'bootstrap-tab-js' ).'"></script>' );
     $html->code( '<script src="'.$http->where( 'app-js' ).'"></script>' );

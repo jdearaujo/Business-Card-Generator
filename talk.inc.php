@@ -58,13 +58,13 @@ function __( $id=0 ) {
         return '[This content needs to be changed. It can be changed in the <a href="https://github.com/jamescostian/Business-Card-Generator/blob/master/talk.inc.php">talk.inc.php</a> file.]</p><p>The reason why you\'ll love this is because...'; // Paragraph above the actual app on the create page
         break;
     case 13:
-        return '';
+        return 'John Doe'; // Default name for the app.
         break;
     case 14:
-        return '';
+        return 'CEO'; // Default position for the app.
         break;
     case 15:
-        return '';
+        return 'Local pawn shop'; // Default company for the app.
         break;
     case 16:
         return '';

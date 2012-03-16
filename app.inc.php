@@ -38,7 +38,7 @@ if ( !class_exists( 'App' ) ) {
         }
         
         /**
-         * Creates the preview <div>
+         * Creates the preview (for use by launch)
          *
          * @since 0.11b
          * @uses global $html
@@ -46,11 +46,40 @@ if ( !class_exists( 'App' ) ) {
         function preview(  ) {
             global $html;
             $html->code( '<div class="row-fluid"><div class="span12 preview">' );
-            $html->code( '<ul id="tab" class="nav nav-tabs"><li class="active"><a data-toggle="tab" href="#previewfront">Preview Front</a></li><li><a data-toggle="tab" href="#previewback">Preview Back</a></li></ul>' );
-            $html->code( '<div class="tab-content">' );
-            $html->code( '<div class="span12 tab-pane fade active" id="previewfront"><p>a</p></div>' );
-            $html->code( '<div class="span12 tab-pane fade" id="previewback"><p>b</p></div>' );
-            $html->code( '</div></div></div>' );
+            $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">Front Preview</a></li><li><a href="#back" data-toggle="tab">Back Preview</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
+            // Front
+            self::card( false );
+            $html->code( '</div><div class="tab-pane fade" id="back">' );
+            // Back
+            
+            $html->code( '</div></div></div></div></div>' );
+        }
+        
+        /**
+         * Creates one or more card (to be previewed or printed)
+         *
+         * @since 0.11b
+         * @uses global $html
+         * @uses __
+         *
+         * @param array $card The info about the card
+         * @param int $side If you set the side to 1, this function will generate the front. If you set it to 2, this function will generate the back.
+         * @param int $amout Number of cards to generate
+         * @return True.
+         */
+        function card( $card, $side, $amount=1 ) {
+            if ( !is_array( $card ) ) {
+                // We need to generate the default template for a card.
+                self::card( array( 'design'=>'default', 'name'=>__( 13 ), 'position'=>__( 14 ), 'company'=>__( 15 ) ), $side, $amount );
+                /*
+                 * TODO: add all of the fields to the above array
+                 */
+                return true;
+            }
+            for ( $card = 0;  $card < $amount;  $card++ ) {
+                
+            }
+            return true;
         }
         
         function __destruct() {}
