@@ -52,8 +52,8 @@ if ( !class_exists( 'http' ) ) {
             case 'bootstrap-responsive-css':
                 $end='css/bootstrap-responsive.min.css';
                 break;
-            case 'my-css':
-                $end='css/style.css';
+            case 'app-css':
+                $end='css/app.css';
                 break;
             case 'html5respond':
                 $end='js/libs/html5-3.4-respond-1.1.0.min.js';
@@ -75,6 +75,9 @@ if ( !class_exists( 'http' ) ) {
                 break;
             case 'bootstrap-tab-js':
                 $end='js/libs/bootstrap/tab.js';
+                break;
+            case 'ajax':
+                $end='ajax.php';
                 break;
             }
             if ( $end===false ) return false;

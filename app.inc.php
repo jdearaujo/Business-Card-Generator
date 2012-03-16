@@ -96,7 +96,7 @@ if ( !class_exists( 'App' ) ) {
             return true;
         }
         
-        function __destruct() {}
+        function __isset( $name ) {return true;} function __destruct() {}
     }
 }
 ?>
