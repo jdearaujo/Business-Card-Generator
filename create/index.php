@@ -10,13 +10,12 @@ require_once( ROOT.'/m.inc.php' );
 tryDef( 'CURRENT_PAGE_NAME', __( 8 ) );
 function footer_hook(  ) {
     global $html, $http;
-    $html->code( '<script src="'.$http->where( 'bootstrap-tab-js' ).'"></script>' );
-    $html->code( '<script src="'.$http->where( 'app-js' ).'"></script>' );
-    $html->code( '<link rel="stylesheet" href="'.$http->where( 'my-css' ).'">' );
+    $html->code( '<script src="'.$http->where( 'bootstrap-tab-js' ).'"></script><script src="'.$http->where( 'app-js' ).'"></script><link rel="stylesheet" href="'.$http->where( 'my-css' ).'">' );
 }
 tryReq( 'top.inc.php' );
 $html->row( array( 'width'=>12, 'title'=>11, 'p'=>array( 12 ) ) );
 tryReq( 'app.inc.php' );
-App::launch(  );
+$app = new App(  );
+$app->launch(  );
 tryReq( 'bottom.inc.php' );
 ?>

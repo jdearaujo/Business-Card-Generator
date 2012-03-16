@@ -94,7 +94,7 @@ if ( !class_exists( 'http' ) ) {
         function dump(  ) {
             global $starttime;
             if ( headers_sent(  ) ) return false;
-            hook( 'pre_header_dump', $queue );
+            hook( 'pre_header_dump', self::$queue );
             $queue = self::$queue;
             while ( count( $queue ) >= 1 ) {
                 header( key( $queue ).': '.current( $queue ) );

@@ -16,5 +16,5 @@ $html->code( '</head><body><div class="navbar navbar-fixed-top"><div class="navb
 // e.g.: <li class="active"><a href="#">Home</a></li>
 $pages = array( array( 'title'=>__( 7 ), 'location'=>'home' ), array( 'title'=>__( 8 ), 'location'=>'create' ) );
 foreach ( $pages as $page ) $html->code( '<li'.( $page[ 'title' ]==CURRENT_PAGE_NAME?' class="active"':'' ).'><a href="'.$http->where( $page[ 'location' ], false ).'">'.$page[ 'title' ].'</a></li>' );
-$html->code( $nav.'</ul></div></div></div></div><div class="container">' );
+$html->code( '</ul></div></div></div></div><div class="container">' );
 ?>
