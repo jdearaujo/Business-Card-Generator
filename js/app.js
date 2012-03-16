@@ -4,8 +4,8 @@
  * @package Business-Card-Generator
  */
 $(function(){
-    $( '#print' ).click(function(){
-        $( this ).attr( 'href', ( $( '#print' ).attr( 'data-baseurl' ) )+'?'+( $( 'form#info' ).serialize(  ) ) );
-        return true;
-    })
+    function actionclick(id) {$('#'+id).attr('href',$('#'+id).attr('data-baseurl')+'?'+$('#info').serialize());}
+    $('#print').click(function(){actionclick('print');});
+    $('#import').click(function(){actionclick('import');});
+    $('#export').click(function(){actionclick('export');});
 })
