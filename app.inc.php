@@ -34,7 +34,9 @@ if ( !class_exists( 'App' ) ) {
             global $http, $html;
             $http->header( 'X-Application-Version', self::$version );
             $http->header( 'X-Application-Author', 'James Costian' );
-            self::preview(  );
+            self::preview( 2 );
+            self::actions(  );
+            self::big(  );
         }
         
         /**
@@ -42,17 +44,19 @@ if ( !class_exists( 'App' ) ) {
          *
          * @since 0.11b
          * @uses global $html
+         *
+         * @param array $card Optional. If you provide this, then the preview will make a preview based on the array you provide.
          */
-        function preview(  ) {
+        function preview( $card=false ) {
             global $html;
             $html->code( '<div class="row-fluid"><div class="span12 preview">' );
             $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">Front Preview</a></li><li><a href="#back" data-toggle="tab">Back Preview</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
             // Front
-            self::card( false, 1, 1 );
+            self::card( $card, 1, 1 );
             $html->code( '</div><div class="tab-pane fade" id="back">' );
             // Back
-            self::card( false, 2, 1 );
-            $html->code( '</div></div></div></div></div>' );
+            self::card( $card, 2, 1 );
+            $html->code( '</div></div></div>' );
         }
         
         /**
@@ -89,14 +93,46 @@ if ( !class_exists( 'App' ) ) {
                     $end.='<p>Company: '.$co.'</p>';
                 }
                 else {
-                    $end = 'This is the back.';
+                    $end = '<p>This is the back.</p>';
                 }
             }
             for ( $card = 0;  $card < $amount;  $card++ ) $html->code( $end );
             return true;
         }
         
-        function __isset( $name ) {return true;} function __destruct() {}
+        /**
+         * Actions (import, export, print)
+         *
+         * @since 0.12
+         * @uses global $html
+         * @uses global $http
+         * @uses __
+         */
+        function actions(  ) {
+            global $http, $html;
+            $html->code( '<div class="well" id="actions"><h3>Actions</h3>' );
+            $html->code( '<a href="'.$http->where( 'print' ).'" data-baseurl="'.$http->where( 'print' ).'" id="print" target="_blank" class="btn btn-success btn-large">Print</a>&nbsp;&nbsp;&nbsp;' );
+            $html->code( '<a href="'.$http->where( 'import' ).'" data-baseurl="'.$http->where( 'import' ).'" id="import" target="_blank" class="btn btn-primary btn-large">Import</a>&nbsp;&nbsp;&nbsp;' );
+            $html->code( '<a href="'.$http->where( 'export' ).'" data-baseurl="'.$http->where( 'export' ).'" id="export" target="_blank" class="btn btn-primary btn-large">Export</a>' );
+            $html->code( '</div></div>' );
+        }
+        
+        /**
+         * Makes the big box with the config options
+         *
+         * @since 0.12
+         * @uses global $html
+         * @uses __
+         */
+        function big(  ) {
+            global $html;
+            $html->code( '</div>' );
+        }
+        
+        function __isset( $name ) {
+            return true;
+        }
+        function __destruct() {} // Do nothing
     }
 }
 ?>

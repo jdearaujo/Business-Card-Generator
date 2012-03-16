@@ -79,6 +79,15 @@ if ( !class_exists( 'http' ) ) {
             case 'ajax':
                 $end='ajax.php';
                 break;
+            case 'print':
+                $end='print.php';
+                break;
+            case 'import':
+                $end='import.php';
+                break;
+            case 'export':
+                $end='export.php';
+                break;
             }
             if ( $end===false ) return false;
             if ( $internal===true ) return ROOT.'/'.$end;
