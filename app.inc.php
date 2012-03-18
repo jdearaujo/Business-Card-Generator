@@ -4,7 +4,7 @@
  *
  * @package Business-Card-Generator
  */
-global $http, $html, $cardbacks, $cardfronts, $cardnames;
+global $http, $html, $cardnames;
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 require_once( ROOT.'/m.inc.php' );
 tryReq( 'cards.inc.php' );
@@ -81,8 +81,8 @@ if ( !class_exists( 'App' ) ) {
          * @since 0.11b
          * @uses global $html
          * @uses __
-         * @uses global $cardfronts
-         * @uses global $cardbacks
+         * @uses card_*
+         * @uses global $http
          *
          * @param array $card The info about the card
          * @param int $side If you set the side to 1, this function will generate the front. If you set it to 2, this function will generate the back.
@@ -91,7 +91,7 @@ if ( !class_exists( 'App' ) ) {
          * @return True.
          */
         function card( $card, $side, $amount=1, $print=false ) {
-            global $html, $cardbacks, $cardfronts;
+            global $html, $http;
             if ( !is_array( $card ) || !isset( $card[ 'name' ] ) ) {
                 // We need to generate the default template for a card.
                 self::__construct(  );
@@ -101,12 +101,8 @@ if ( !class_exists( 'App' ) ) {
             $s = intval( $side );
             if ( $print===true ) $end = '<div style="display:inline-block;width:89mm;height:51mm;-moz-border-radius:5px;-o-border-radius:5px;-webkit-border-radius:5px;border-radius:5px">';
             else $end = '';
-            if ( $s==1 ) $design = $cardfronts[ $card[ 'design' ] ];
-            else $design = $cardbacks[ $card[ 'design' ] ];
-            $textfields = self::$fields;
-            array_shift( $textfields );
-            foreach ( $textfields as $field ) $design = str_replace( '%'.$field[ 'id' ].'%', $card[ $field[ 'id' ] ], $design );
-            $end.=str_replace( '%!%', '%', $design );
+            if ( $s==1 ) $end.=hook( 'card_'.$card[ 'design' ], $side, $card );
+            else $end.=hook( 'card_'.$card[ 'design' ], $side, $card );
             if ( $print===true ) $end.='</div>';
             for ( $card = 0;  $card < $amount;  $card++ ) $html->code( $end );
             return true;
@@ -135,13 +131,11 @@ if ( !class_exists( 'App' ) ) {
          * @since 0.12
          * @uses global $html
          * @uses __
-         * @uses global $cardfronts
-         * @uses global $cardbacks
          * @uses global $cardnames
          * @uses global $http
          */
         function big(  ) {
-            global $html, $cardbacks, $cardfronts, $cardnames, $http;
+            global $html, $cardnames, $http;
             $html->code( '<div class="span8 big">' );
             $field = self::$fields[ 0 ];
             $form = '<div class="control-group"><label for="'.$field[ 'id' ].'" class="control-label">'.__( $field[ 'name' ] ).'</label><div class="controls"><select id="'.$field[ 'id' ].'" name="'.$field[ 'id' ].'">';

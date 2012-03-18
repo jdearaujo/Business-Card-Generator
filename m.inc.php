@@ -4,7 +4,7 @@
  *
  * @package Business-Card-Generator
  */
-global $http, $html, $starttime, $cardbacks, $cardfronts, $cardnames;
+global $http, $html, $starttime, $cardnames;
 if ( !isset( $starttime ) ) $starttime = microtime( true );
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 if ( !function_exists( 'tryDef' ) ) {
