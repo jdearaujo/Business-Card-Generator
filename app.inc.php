@@ -143,7 +143,7 @@ if ( !class_exists( 'App' ) ) {
          */
         function big(  ) {
             global $html;
-            $html->code( '<div class="span8 big"><div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#info" data-toggle="tab">'.__( 27 ).'</a></li><li><a href="#design" data-toggle="tab">'.__( 28 ).'</a></li><li><a href="#fonts" data-toggle="tab">'.__( 29 ).'</a></li><li><a href="#colors" data-toggle="tab">'.__( 30 ).'</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="info">' );
+            $html->code( '<div class="span8 big"><div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#infotab" data-toggle="tab">'.__( 27 ).'</a></li><li><a href="#design" data-toggle="tab">'.__( 28 ).'</a></li><li><a href="#fonts" data-toggle="tab">'.__( 29 ).'</a></li><li><a href="#colors" data-toggle="tab">'.__( 30 ).'</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="infotab">' );
             // Info form
             $html->code( '<form action="#!" id="info"></form>' );
             $html->code( '</div><div class="tab-pane fade" id="design">' );
