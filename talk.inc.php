@@ -1,7 +1,7 @@
 <?php
 /**
  * Has the actual content. If you want to change any text the website says, you should change this file.
- * If you want to change the text on a design for a business card, please go to app.inc.php, find the card function in the App class, and make your changes inside of the switch statement.
+ * If you want to change the text on a design for a business card, please go to cards.inc.php
  *
  * @package Business-Card-Generator
  */
@@ -101,16 +101,16 @@ function __( $id=0 ) {
         return 'Silicon Valley, CA'; // Default Location in the app.
         break;
     case 27:
-        return 'Info'; // The title of the Info tab in the app.
+        return 'Front Preview'; // Front Preview tab in the app.
         break;
     case 28:
-        return 'Principal Design'; // The title of the Principal Design tab in the app.
+        return 'Back Preview'; // Back Preview tab in the app.
         break;
     case 29:
-        return 'Fonts'; // The title of the Fonts tab in the app.
+        return ''; // 
         break;
     case 30:
-        return 'Colors'; // The title of the Colors tab in the app.
+        return ''; // 
         break;
     case 31:
         return 'Import a business card'; // Title for the import page
@@ -119,37 +119,37 @@ function __( $id=0 ) {
         return 'Business Card File'; // The label for the file field in the import page.
         break;
     case 33:
-        return ''; // 
+        return 'Design'; // Label for the design field in the app's info form.
         break;
     case 34:
-        return ''; // 
+        return 'Name'; // Label for the name field in the app's info form.
         break;
     case 35:
-        return ''; // 
+        return 'Home Phone'; // Label for the home phone field in the app's info form.
         break;
     case 36:
-        return ''; // 
+        return 'Cell Phone'; // Label for the cell phone field in the app's info form.
         break;
     case 37:
-        return ''; // 
+        return 'Work Phone'; // Label for the work phone field in the app's info form.
         break;
     case 38:
-        return ''; // 
+        return 'Website'; // Label for the website field in the app's info form.
         break;
     case 39:
-        return ''; // 
+        return 'Company'; // Label for the company field in the app's info form.
         break;
     case 40:
-        return ''; // 
+        return 'Position'; // Label for the position field in the app's info form.
         break;
     case 41:
-        return ''; // 
+        return 'Skype'; // Label for the skype field in the app's info form.
         break;
     case 42:
-        return ''; // 
+        return 'Email'; // Label for the email field in the app's info form.
         break;
     case 43:
-        return ''; // 
+        return 'Location'; // Label for the location field in the app's info form.
         break;
     case 44:
         return ''; // 
@@ -170,6 +170,36 @@ function __( $id=0 ) {
         return ''; // 
         break;
     case 50:
+        return ''; // 
+        break;
+    case 51:
+        return ''; // 
+        break;
+    case 52:
+        return ''; // 
+        break;
+    case 53:
+        return ''; // 
+        break;
+    case 54:
+        return ''; // 
+        break;
+    case 55:
+        return ''; // 
+        break;
+    case 56:
+        return ''; // 
+        break;
+    case 57:
+        return ''; // 
+        break;
+    case 58:
+        return ''; // 
+        break;
+    case 59:
+        return ''; // 
+        break;
+    case 60:
         return ''; // 
         break;
     }

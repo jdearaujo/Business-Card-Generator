@@ -8,6 +8,7 @@ global $http, $html, $app;
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( dirname( __FILE__ ) ) );
 require_once( ROOT.'/m.inc.php' );
 tryDef( 'CURRENT_PAGE_NAME', __( 8 ) );
+tryDef( 'FORCE_NEW_TAB', true );
 function end_head_hook(  ) {
     global $html, $http;
     $html->code( "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>".'<link rel="stylesheet" href="'.$http->where( 'app-css' ).'">' );
