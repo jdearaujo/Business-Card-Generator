@@ -66,7 +66,7 @@ if ( !class_exists( 'App' ) ) {
         function preview( $card=false ) {
             global $html;
             $html->code( '<div class="row-fluid"><div class="span4 preview">' );
-            $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">'.__( 27 ).'</a></li><li><a href="#back" data-toggle="tab">'.__( 28 ).'</a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
+            $html->code( '<div class="tabbable"><ul class="nav nav-tabs"><li class="active"><a href="#front" data-toggle="tab">'.__( 27 ).'</a></li><li><a href="#back" data-toggle="tab">'.__( 28 ).'</a></li><li><a href="#" id="refresh"><i class="icon-refresh"></i></a></li></ul><div class="tab-content"><div class="tab-pane fade in active" id="front">' );
             // Front
             self::card( $card, 1, 1 );
             $html->code( '</div><div class="tab-pane fade" id="back">' );
