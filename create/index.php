@@ -11,7 +11,7 @@ tryDef( 'CURRENT_PAGE_NAME', __( 8 ) );
 tryDef( 'FORCE_NEW_TAB', true );
 function end_head_hook(  ) {
     global $html, $http;
-    $html->code( "<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>".'<link rel="stylesheet" href="'.$http->where( 'app-css' ).'">' );
+    $html->code( "<link href='http://fonts.googleapis.com/css?family=".GOOGLE_FONTS."' rel='stylesheet' type='text/css'>".'<link rel="stylesheet" href="'.$http->where( 'app-css' ).'">' );
 }
 function footer_hook(  ) {
     global $html, $http;

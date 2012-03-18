@@ -15,4 +15,5 @@ tryDef( 'GOOGLE_ANALYTICS_ID', false ); // e.g. UA-XXXXX-X
 tryDef( 'BUFFER_SIZE', 300 ); // In characters. This applies to the HTML (and the JSON that comes out of the exporter) - not any of the resources, like the CSS and JS.
 tryDef( 'EXPORT_FNAME', 'business-card.json' ); // The default name of the export file.
 tryDef( 'MAX_IMPORT_SIZE', 10240 ); // Max filesize for an import. Default: 10kb.
+tryDef( 'GOOGLE_FONTS', 'Lato' );
 ?>
