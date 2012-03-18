@@ -8,9 +8,9 @@ global $http, $html, $app;
 if ( !defined( 'ROOT' ) ) define( 'ROOT', dirname( __FILE__ ) );
 require_once( ROOT.'/m.inc.php' );
 tryDef( 'CURRENT_PAGE_NAME', false );
-if ( ( isset( $_FILES[ 'json' ] )?( !( $_FILES[ 'json' ][ 'error' ] > 0 ) ):false ) && ( $_FILES[ 'fileToUpload' ][ 'size' ] < MAX_IMPORT_SIZE ) ) {
+if ( ( isset( $_FILES[ 'json' ] )?( !( $_FILES[ 'json' ][ 'error' ] > 0 ) ):false ) && ( $_FILES[ 'json' ][ 'size' ] < MAX_IMPORT_SIZE ) ) {
     // Someone has uploaded their json business card, and they want us to import it.
-    $fname = $http->where( 'imports' ).'/'.$_FILES[ 'json' ][ 'name' ].'-'.mt_rand( 1, 9999 );
+    $fname = $http->where( 'imports', true ).'/'.$_FILES[ 'json' ][ 'name' ].'-'.mt_rand( 1, 9999 );
     move_uploaded_file( $_FILES[ 'json' ][ 'tmp_name' ], $fname );
     // First let's read this file.
     $jsonh = fopen( $fname, 'r' );
@@ -26,11 +26,12 @@ if ( ( isset( $_FILES[ 'json' ] )?( !( $_FILES[ 'json' ][ 'error' ] > 0 ) ):fals
     // We have just deleted the json file, because we already have read it.
     $url = $http->where( 'create' ).'?';
     while ( count( $config ) >= 1 ) {
-        $url .= key( $config ).'='.current( $config ).'&';
+        $url .= key( $config ).'='.urlencode( current( $config ) ).'&';
         array_shift( $config );
     }
     $url = substr( $url, 0, -1 );
     $http->header( 'Location', $url );
+    exit(  );
 }
 if ( !isset( $html ) ) $html = new html(  );
 tryReq( 'top.inc.php' );
