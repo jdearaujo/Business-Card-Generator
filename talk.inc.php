@@ -113,10 +113,10 @@ function __( $id=0 ) {
         return 'Colors'; // The title of the Colors tab in the app.
         break;
     case 31:
-        return ''; // 
+        return 'Import a business card'; // Title for the import page
         break;
     case 32:
-        return ''; // 
+        return 'Business Card File'; // The label for the file field in the import page.
         break;
     case 33:
         return ''; // 

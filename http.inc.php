@@ -88,6 +88,9 @@ if ( !class_exists( 'http' ) ) {
             case 'export':
                 $end='export.php';
                 break;
+            case 'imports':
+                $end='imports';
+                break;
             }
             if ( $end===false ) return false;
             if ( $internal===true ) return ROOT.'/'.$end;

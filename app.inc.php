@@ -130,7 +130,7 @@ if ( !class_exists( 'App' ) ) {
             $html->code( '<div class="well" id="actions"><h3>'.__( 16 ).'</h3>' );
             $html->code( '<a href="'.$http->where( 'print' ).'" data-baseurl="'.$http->where( 'print' ).'" id="print" target="_blank" class="btn btn-success btn-large">'.__( 17 ).'</a>&nbsp;&nbsp;&nbsp;' );
             $html->code( '<a href="'.$http->where( 'import' ).'" data-baseurl="'.$http->where( 'import' ).'" id="import" target="_blank" class="btn btn-primary btn-large">'.__( 18 ).'</a>&nbsp;&nbsp;&nbsp;' );
-            $html->code( '<a href="'.$http->where( 'export' ).'" data-baseurl="'.$http->where( 'export' ).'" id="export" target="_blank" class="btn btn-primary btn-large">'.__( 19 ).'</a>' );
+            $html->code( '<a href="'.$http->where( 'export' ).'" data-baseurl="'.$http->where( 'export' ).'" id="export" class="btn btn-primary btn-large">'.__( 19 ).'</a>' );
             $html->code( '</div></div>' );
         }
         
