@@ -119,9 +119,9 @@ if ( !class_exists( 'App' ) ) {
         function actions(  ) {
             global $http, $html;
             $html->code( '<div class="well" id="actions"><h3>'.__( 16 ).'</h3>' );
-            $html->code( '<a href="'.$http->where( 'print' ).'" data-baseurl="'.$http->where( 'print' ).'" id="print" target="_blank" class="btn btn-success btn-large">'.__( 17 ).'</a>&nbsp;&nbsp;&nbsp;' );
-            $html->code( '<a href="'.$http->where( 'import' ).'" target="_blank" class="btn btn-primary btn-large">'.__( 18 ).'</a>&nbsp;&nbsp;&nbsp;' );
-            $html->code( '<a href="'.$http->where( 'export' ).'" data-baseurl="'.$http->where( 'export' ).'" id="export" target="_blank" class="btn btn-primary btn-large">'.__( 19 ).'</a>' );
+            $html->code( '<a href="'.$http->where( 'print' ).'" data-baseurl="'.$http->where( 'print' ).'" id="print" target="_blank" class="btn btn-success btn-large"><i class="icon-print" style="vertical-align:middle;"></i>&nbsp;'.__( 17 ).'</a>&nbsp;&nbsp;&nbsp;' );
+            $html->code( '<a href="'.$http->where( 'import' ).'" target="_blank" class="btn btn-primary btn-large"><i class="icon-upload" style="vertical-align:middle;"></i>&nbsp;'.__( 18 ).'</a>&nbsp;&nbsp;&nbsp;' );
+            $html->code( '<a href="'.$http->where( 'export' ).'" data-baseurl="'.$http->where( 'export' ).'" id="export" target="_blank" class="btn btn-primary btn-large"><i class="icon-download" style="vertical-align:middle;"></i>&nbsp;'.__( 19 ).'</a>' );
             $html->code( '</div></div>' );
         }
         
