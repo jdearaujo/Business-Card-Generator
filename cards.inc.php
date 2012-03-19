@@ -28,7 +28,7 @@ function card_default( $side, $d ) {
     }
     else {
         $end='<div style="background: rgb(255,255,255);background: -moz-linear-gradient(top,  rgb(255,255,255) 0%, rgb(246,246,246) 47%, rgb(237,237,237) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(255,255,255)), color-stop(47%,rgb(246,246,246)), color-stop(100%,rgb(237,237,237)));background: -webkit-linear-gradient(top,  rgb(255,255,255) 0%,rgb(246,246,246) 47%,rgb(237,237,237) 100%);background: -o-linear-gradient(top,  rgb(255,255,255) 0%,rgb(246,246,246) 47%,rgb(237,237,237) 100%);background: -ms-linear-gradient(top,  rgb(255,255,255) 0%,rgb(246,246,246) 47%,rgb(237,237,237) 100%);background: linear-gradient(top,  rgb(255,255,255) 0%,rgb(246,246,246) 47%,rgb(237,237,237) 100%)">';
-        $end.='<p style="font-size:40px;line-height:100%;text-align:center;font-weight:bold;height:100%;"><span style="vertical-align:middle;display:inline-block;">'.$d[ 'name' ].'</span></p>';
+        $end.='<p style="font-size:10mm;line-height:100%;text-align:center;font-weight:bold;padding-top:20mm;">'.$d[ 'name' ].'</p>';
     }
     return $end.'</div>';
 }
