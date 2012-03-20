@@ -20,7 +20,7 @@ if ( !class_exists( 'App' ) ) {
          *  Current Version
          *  @var string
          */
-        public static $version='0.14';
+        public static $version='1';
         
         /**
          *  Default Settings
