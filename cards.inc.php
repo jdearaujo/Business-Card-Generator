@@ -32,4 +32,5 @@ function card_default( $side, $d ) {
     }
     return $end.'</div>';
 }
+if ( is_file( dirname( ROOT ).'/designs.inc.php' ) ) require_once( dirname( ROOT ).'/designs.inc.php' ); // For people like me who want to have designs in a completely different dir (in this case, the parent dir)
 ?>
