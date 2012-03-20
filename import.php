@@ -29,8 +29,7 @@ if ( ( isset( $_FILES[ 'json' ] )?( !( $_FILES[ 'json' ][ 'error' ] > 0 ) ):fals
         $url .= key( $config ).'='.urlencode( current( $config ) ).'&';
         array_shift( $config );
     }
-    $url = substr( $url, 0, -1 );
-    $http->header( 'Location', $url );
+    $http->header( 'Location', $url.'import' );
     exit(  );
 }
 if ( !isset( $html ) ) $html = new html(  );
