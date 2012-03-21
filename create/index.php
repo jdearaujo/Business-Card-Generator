@@ -20,7 +20,7 @@ function footer_hook(  ) {
 tryReq( 'top.inc.php' );
 $html->row( array( 'width'=>12, 'title'=>11, 'p'=>array( 12 ) ) );
 tryReq( 'app.inc.php' );
-if ( !isset( $app ) ) $app = new App(  );
+$app = new App(  );
 $app->launch(  );
 tryReq( 'bottom.inc.php' );
 ?>
